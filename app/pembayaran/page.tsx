@@ -1,7 +1,7 @@
 import { supabase } from "../../lib/supabase";
 
 export default async function PembayaranPage() {
-  const { data: pembayaran } = await supabase
+  const { data: pembayaran, error } = await supabase
     .from("pembayaran")
     .select("*");
 
@@ -11,29 +11,13 @@ export default async function PembayaranPage() {
         Data Pembayaran
       </h1>
 
-      {pembayaran?.map((item) => (
-        <div
-          key={item.id}
-          className="bg-white p-4 rounded shadow mb-4"
-        >
-          <p>
-            Bulan: {item.bulan}
-          </p>
+      {error && (
+        <p>Error: {error.message}</p>
+      )}
 
-          <p>
-            Jumlah: Rp{" "}
-            {item.jumlah?.toLocaleString("id-ID")}
-          </p>
-
-          <p>
-            Metode: {item.metode}
-          </p>
-
-          <p>
-            Status: {item.status}
-          </p>
-        </div>
-      ))}
+      <pre>
+        {JSON.stringify(pembayaran, null, 2)}
+      </pre>
     </main>
   );
 }
