@@ -16,13 +16,22 @@ export default async function PembayaranPage() {
           key={item.id}
           className="bg-white p-4 rounded shadow mb-4"
         >
-          <h2>{item.nama_penghuni}</h2>
+          <p>
+            Bulan: {item.bulan}
+          </p>
 
-          <p>Bulan: {item.bulan}</p>
+          <p>
+            Jumlah: Rp{" "}
+            {item.jumlah?.toLocaleString("id-ID")}
+          </p>
 
-          <p>Jumlah: Rp {item.jumlah}</p>
+          <p>
+            Metode: {item.metode}
+          </p>
 
-          <p>Status: {item.status}</p>
+          <p>
+            Status: {item.status}
+          </p>
         </div>
       ))}
     </main>
