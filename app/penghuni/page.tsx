@@ -1,8 +1,8 @@
 export default function PenghuniPage() {
   return (
     <div>
-      <h1>Data Penghuni</h1>
-      <p>Halaman penghuni berhasil dibuat.</p>
+      <h1>DATA PENGHUNI HANMAR KOS</h1>
+      <p>Update terbaru</p>
     </div>
   );
 }
